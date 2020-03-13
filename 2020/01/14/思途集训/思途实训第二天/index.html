@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    思途实训-day02 |  苦酒
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/1.jpg" />
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-思途集训/思途实训第二天" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  思途实训-day02
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/14/%E6%80%9D%E9%80%94%E9%9B%86%E8%AE%AD/%E6%80%9D%E9%80%94%E5%AE%9E%E8%AE%AD%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="article-date">
+  <time datetime="2020-01-14T11:35:06.000Z" itemprop="datePublished">2020-01-14</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%80%9D%E9%80%94%E5%AE%9E%E8%AE%AD/">思途实训</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.3k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">6分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="语录"><a href="#语录" class="headerlink" title="语录"></a>语录</h1><p>  挤在人群中，面带微笑。但无论这微笑有多么甜美，都难以掩饰微笑背后的落寞与无奈。<br>因为根本上，人和人的灵魂是无法相通的。在无法相通的隔阂与孤独中，我只能挤进人群，面带微笑。</p>
+<h1 id="上午"><a href="#上午" class="headerlink" title="上午"></a>上午</h1><p> 杜老师带我们写出了剩下的两个模块，分别是controller和serivce</p>
+<ol>
+<li><p>Departmentcontroller.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">package com.situ.company.department.controller;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line">import com.situ.company.department.model.DepartmentModel;</span><br><span class="line">import com.situ.company.department.service.DepartmentService;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;department&quot;)</span><br><span class="line">public class DepartmentController </span><br><span class="line">&#123;</span><br><span class="line">	@Autowired</span><br><span class="line">	private DepartmentService service;</span><br><span class="line">	</span><br><span class="line">	@RequestMapping(&quot;insert&quot;)</span><br><span class="line">	public int insert(DepartmentModel model)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		return service.insert(model);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@RequestMapping(&quot;delect&quot;)</span><br><span class="line">	public int delect(DepartmentModel model)</span><br><span class="line">	&#123;</span><br><span class="line">		return service.delect(model);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@RequestMapping(&quot;updata&quot;)</span><br><span class="line">	public int updata(DepartmentModel model)</span><br><span class="line">	&#123;</span><br><span class="line">		return service.updata(model);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@RequestMapping(&quot;selectmodel&quot;)</span><br><span class="line">	public DepartmentModel selectmodel(DepartmentModel model)</span><br><span class="line">	&#123;</span><br><span class="line">		return service.selectModel(model);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@RequestMapping(&quot;selectList&quot;)</span><br><span class="line">	public List&lt;DepartmentModel&gt; select(DepartmentModel model)</span><br><span class="line">	&#123;</span><br><span class="line">		return service.selectList(model);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>DepartmentSerivce.java<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.situ.company.department.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.situ.company.department.mapper.DepartmentMapper;</span><br><span class="line"><span class="keyword">import</span> com.situ.company.department.model.DepartmentModel;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DepartmentService</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> DepartmentMapper mapper;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insert</span><span class="params">(DepartmentModel model)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		DepartmentModel mdb = selectModel(model);</span><br><span class="line">		<span class="keyword">if</span>(mdb == <span class="keyword">null</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> mapper.insert(model);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delect</span><span class="params">(DepartmentModel model)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mapper.Delete(model);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updata</span><span class="params">(DepartmentModel model)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mapper.updata(model);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> DepartmentModel <span class="title">selectModel</span><span class="params">(DepartmentModel model)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mapper.selectModel(model);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;DepartmentModel&gt; <span class="title">selectList</span><span class="params">(DepartmentModel model)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		String name = model.getName();</span><br><span class="line">		<span class="keyword">if</span>(name == <span class="keyword">null</span>)<span class="comment">//此处的null必须变成“”，否则下面的setName拼接成的为%null%   查询的是name中含有name的字符</span></span><br><span class="line">		&#123;</span><br><span class="line">			name = <span class="string">""</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		model.setName(<span class="string">'%'</span> + name + <span class="string">'%'</span>);</span><br><span class="line">		<span class="keyword">return</span> mapper.selectList(model);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>Model模块是建立私有化的数据类型，相当于建立数据库中的对应数据。</li>
+<li>Mapper模块在Model基础上进行数据库（sql）语句的编辑（增删改查）</li>
+<li>Service模块在Mapper基础上进行一些逻辑化的操作。例如：id（主键）和code（非主键），但我想让code的值是唯一的，这时候需要用到Service模块的的操作，代码如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insert</span><span class="params">(DepartmentModel model)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DepartmentModel mdb = selectModel(model);</span><br><span class="line">	<span class="keyword">if</span>(mdb == <span class="keyword">null</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> mapper.insert(model);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>最后是Controller模块，这个模块对应的是网页端，给网页服务的。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(<span class="string">"insert"</span>)</span><br></pre></td></tr></table></figure>
+<p>这个地方的insert和网页的请求一样，不能写错。<br>3.</p>
+<h1 id="下午"><a href="#下午" class="headerlink" title="下午"></a>下午</h1><p> 老师讲解使用网页端来进行数据库的增删改查</p>
+<ul>
+<li>刚开始，老师直接使用在网址中输入的命令</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//127.0.0.1:8080/company/department/insert?code=1&amp;name=hls&amp;tel=17852031547</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后直接转到网页端，新建一个html文件，文件代码如下：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">		&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">		&lt;script type="text/javascript" src="/company/base/js/jquery-3.3.1.min.js"&gt;&lt;/script&gt;</span><br><span class="line">	&lt;style&gt;</span><br><span class="line">			body &#123;</span><br><span class="line">				background-image:url(<span class="string">'9.jpg'</span>);</span><br><span class="line">				height: <span class="number">100</span>%;</span><br><span class="line">  				width: <span class="number">100</span>%;</span><br><span class="line">  				background-size: cover;</span><br><span class="line"> 				position: absolute;</span><br><span class="line">  				overflow: hidden;</span><br><span class="line">				 &#125;</span><br><span class="line">			#login&#123;</span><br><span class="line">				width:<span class="number">400</span>px;</span><br><span class="line">				height:<span class="number">280</span>px;</span><br><span class="line">				position:absolute;</span><br><span class="line">				left: <span class="number">50</span>%;</span><br><span class="line">				top: <span class="number">40</span>%;</span><br><span class="line">				margin-left:-<span class="number">200</span>px;</span><br><span class="line">				margin-top:-<span class="number">140</span>px;</span><br><span class="line">				border:<span class="number">1</span>px;</span><br><span class="line">				align:center;</span><br><span class="line">				&#125;</span><br><span class="line">			#form&#123;</span><br><span class="line">				width:<span class="number">300</span>px;</span><br><span class="line">				height:<span class="number">160</span>px;</span><br><span class="line">				position:relative;</span><br><span class="line">				left:<span class="number">50</span>%;</span><br><span class="line">				top:<span class="number">40</span>%;</span><br><span class="line">				margin-left:-<span class="number">150</span>px;</span><br><span class="line">				margin-top:-<span class="number">80</span>px;</span><br><span class="line">				&#125;</span><br><span class="line">			#img&#123;</span><br><span class="line">				width:<span class="number">300</span>px;</span><br><span class="line">				height:<span class="number">160</span>px;</span><br><span class="line">				position:relative;</span><br><span class="line">				left:<span class="number">55</span>%;</span><br><span class="line">				top:<span class="number">29.4</span>%;</span><br><span class="line">				margin-left:-<span class="number">150</span>px;</span><br><span class="line">				margin-top:-<span class="number">80</span>px;</span><br><span class="line">			&#125;</span><br><span class="line">			#bu1&#123;</span><br><span class="line">				background-color: black;</span><br><span class="line">				width:<span class="number">50</span>px;</span><br><span class="line">				height:<span class="number">40</span>px;</span><br><span class="line">			&#125;</span><br><span class="line">			#bu2&#123;</span><br><span class="line">				background-color: black;</span><br><span class="line">				width:<span class="number">50</span>px;</span><br><span class="line">				height:<span class="number">40</span>px;</span><br><span class="line">			&#125;</span><br><span class="line">			#bu3&#123;</span><br><span class="line">				background-color: black;</span><br><span class="line">				width:<span class="number">100</span>px;</span><br><span class="line">				height:<span class="number">40</span>px;</span><br><span class="line">			&#125;</span><br><span class="line">		&lt;/style&gt;</span><br><span class="line">	&lt;/head&gt; </span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;div id = <span class="string">"img"</span>&gt;</span><br><span class="line">	&lt;img src=<span class="string">"8.jpg"</span> width=<span class="string">"165"</span> height=<span class="string">"60"</span> /&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div id = <span class="string">"login"</span>&gt;</span><br><span class="line">	&lt;div id = <span class="string">"form"</span>&gt;</span><br><span class="line">		&lt;form&gt;</span><br><span class="line">		&lt;h3 align="center" style="color:green" &gt;部门注册系统&lt;/h3&gt;</span><br><span class="line">		*&amp;nbsp;&amp;nbsp;账&amp;nbsp;&amp;nbsp;号： &lt;input type=<span class="string">'text'</span> name = <span class="string">'code'</span>&gt;&lt;br&gt;&lt;br&gt;</span><br><span class="line">		*&amp;nbsp;&amp;nbsp;名&amp;nbsp;&amp;nbsp;称： &lt;input type=<span class="string">'text'</span> name = <span class="string">'name'</span>&gt;&lt;br&gt;&lt;br&gt;</span><br><span class="line">		*&amp;nbsp;&amp;nbsp;电&amp;nbsp;&amp;nbsp;话： &lt;input type=<span class="string">'text'</span> name = <span class="string">'tel'</span>&gt;&lt;br&gt;</span><br><span class="line">		&lt;br&gt;</span><br><span class="line">		&amp;nbsp;&amp;nbsp;&lt;input id = <span class="string">"bu1"</span> style = <span class="string">"color: white"</span> type=<span class="string">"button"</span> value=<span class="string">"注册"</span> onclick=<span class="string">"test()"</span>&gt;</span><br><span class="line">		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input id = <span class="string">"bu2"</span> style = <span class="string">"color: white"</span> type=<span class="string">"button"</span> value=<span class="string">"重置"</span> onclick=<span class="string">"test1()"</span>&gt;</span><br><span class="line">		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input id = <span class="string">"bu3"</span> style = <span class="string">"color: white"</span> type=<span class="string">"button"</span> value=<span class="string">"成员注册页面"</span>   onclick=<span class="string">"test2()"</span>&gt;</span><br><span class="line">		&lt;/form&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">	&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="function">function <span class="title">test1</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		window.location.href=<span class="string">"http://127.0.0.1:8080/company/web/department.html"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">function <span class="title">test</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> code = $(<span class="string">"input[name='code']"</span>).val();</span><br><span class="line">		<span class="keyword">var</span> name = $(<span class="string">"input[name='name']"</span>).val();</span><br><span class="line">		<span class="keyword">var</span> tel = $(<span class="string">"input[name='tel']"</span>).val();</span><br><span class="line"><span class="comment">//htpp://127.0.0.1:8080/company/department/insert?code=a1&amp;name=a2&amp;pass=a3</span></span><br><span class="line">		$.ajax(&#123;</span><br><span class="line">			url:<span class="string">'/company/department/insert'</span>, </span><br><span class="line">			<span class="comment">//data:'code='+code+'&amp;name='+name+'&amp;pass='+pass,  //从网页端到java发送的请求参数</span></span><br><span class="line">			data:&#123;code:code,name:name,tel:tel&#125;,</span><br><span class="line">			dataType:<span class="string">'json'</span>, <span class="comment">//返回的数据类型 java返回至网页端</span></span><br><span class="line">			type:<span class="string">'post'</span>, <span class="comment">//请求的方式</span></span><br><span class="line">			success:function(d)</span><br><span class="line">			&#123;</span><br><span class="line">				console.log(d)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">function <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">	 window.open(<span class="string">'http://127.0.0.1:8080/company/web/Employee.html'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>这样就可以实施网页端的操作。</p>
+<h2 id="晚上"><a href="#晚上" class="headerlink" title="晚上"></a>晚上</h2><p>巩固网页端的知识，自己查询了HTML和CSS的一些操作，做出来了一个小小的界面<br><img src="https://img-blog.csdnimg.cn/20200114222749611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTE1NDM5,size_16,color_FFFFFF,t_70" alt="部门注册"><br>感觉杜老师真好，有问必答，太敬业了。<br>明天差不多要开始真正的做界面和逻辑化了，溜了，溜了！</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/01/14/%E6%80%9D%E9%80%94%E9%9B%86%E8%AE%AD/%E6%80%9D%E9%80%94%E5%AE%9E%E8%AE%AD%E7%AC%AC%E4%BA%8C%E5%A4%A9/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E9%80%94%E5%AE%9E%E8%AE%AD/" rel="tag">思途实训</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/01/16/%E6%80%9D%E9%80%94%E9%9B%86%E8%AE%AD/%E6%80%9D%E9%80%94%E5%AE%9E%E8%AE%AD%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            思途实训-day03-day04
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/01/13/%E6%80%9D%E9%80%94%E9%9B%86%E8%AE%AD/%E6%80%9D%E9%80%94%E5%AE%9E%E8%AE%AD%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">思途实训-day01</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2017-2020
+        苦酒
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/1.jpg" alt="苦酒"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://www.zhihu.com/people/huang-gong-zi-64" target="_blank" rel="noopener">知乎</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://blog.csdn.net/qq_40915439" target="_blank" rel="noopener">CSDN</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://i.csdn.net/#/uc/profile" target="_blank" rel="noopener">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/js/ayer.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+
+    
+  </div>
+</body>
+
+</html>

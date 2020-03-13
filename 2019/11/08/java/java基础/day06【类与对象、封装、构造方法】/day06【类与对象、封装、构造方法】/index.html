@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    day06【类与对象、封装、构造方法】 |  苦酒
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/1.jpg" />
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-java/java基础/day06【类与对象、封装、构造方法】/day06【类与对象、封装、构造方法】" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  day06【类与对象、封装、构造方法】
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/11/08/java/java%E5%9F%BA%E7%A1%80/day06%E3%80%90%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E3%80%91/day06%E3%80%90%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E3%80%91/" class="article-date">
+  <time datetime="2019-11-08T13:08:06.000Z" itemprop="datePublished">2019-11-08</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JAVA%E5%9F%BA%E7%A1%80/">JAVA基础</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">8分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+  <div class="article-gallery">
+    <div class="article-gallery-photos">
+      
+        
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573231881398&di=78a6a100d95300605792ad2bd358f452&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fe%2F58b3ee88ed064.jpg" itemprop="image">
+        
+      
+    </div>
+  </div>
+
+
+      
+      <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;经过了好几天的歇业，终于把第六天的课程学完了，类、对象、封装及构造方法，感觉从C转成JAVA确实有一定的不适应，这方面刷题好像也弥补不过来。只能通过自己思维的转变去深入的了解JAVA与C的区别，努力吧，骚年！</p>
+<h1 id="面向对象的思想"><a href="#面向对象的思想" class="headerlink" title="面向对象的思想"></a>面向对象的思想</h1><h2 id="面向对象思想概述"><a href="#面向对象思想概述" class="headerlink" title="面向对象思想概述"></a>面向对象思想概述</h2><p>&emsp;Java语言是一种面向对象的程序设计语言，而面向对象思想是一种程序设计思想，我们在面向对象思想的指引下，<br>使用Java语言去设计、开发计算机程序。 这里的对象泛指现实中一切事物，每种事物都具备自己的属性和行为。面<br>向对象思想就是在计算机程序设计过程中，参照现实中事物，将事物的属性特征、行为特征抽象出来，描述成计算<br>机事件的设计思想。 它区别于面向过程思想，强调的是通过调用对象的行为来实现功能，而不是自己一步一步的去<br>操作实现。</p>
+<h2 id="类和对象的关系"><a href="#类和对象的关系" class="headerlink" title="类和对象的关系"></a>类和对象的关系</h2><ul>
+<li>类是对一类事物的描述，是抽象的。</li>
+<li>对象是一类事物的实例，是具体的。</li>
+<li>类是对象的模板，对象是类的实体。</li>
+</ul>
+<h2 id="类的定义格式"><a href="#类的定义格式" class="headerlink" title="类的定义格式"></a>类的定义格式</h2><ol>
+<li>成员变量：对应事物的属性</li>
+<li>成员方法：对应事物的行为</li>
+<li>类的定义格式举例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">   &#x2F;&#x2F;成员变量  </span><br><span class="line">   String name；&#x2F;&#x2F;姓名  </span><br><span class="line">    int age；&#x2F;&#x2F;年龄</span><br><span class="line">    &#x2F;&#x2F;成员方法</span><br><span class="line">    &#x2F;&#x2F;学习的方法</span><br><span class="line">    publicvoid study() &#123;</span><br><span class="line">    System.out.println(&quot;好好学习，天天向上&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;&#x2F;吃饭的方法</span><br><span class="line">  publicvoid eat() &#123;</span><br><span class="line">    System.out.println(&quot;学习饿了要吃饭&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="对象的使用"><a href="#对象的使用" class="headerlink" title="对象的使用"></a>对象的使用</h2>创建对象：<code>类名 对象名 = new 类名();</code><br>使用对象访问类中的成员：</li>
+<li>对象名.成员变量；</li>
+<li>对象名.成员方法()；</li>
+<li>对象使用格式举例：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class Test01_Student &#123;</span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    &#x2F;&#x2F;创建对象格式：类名 对象名 &#x3D; new 类名();</span><br><span class="line">    Student s &#x3D; new Student();</span><br><span class="line">    System.out.println(&quot;s:&quot;+s); &#x2F;&#x2F;cn.itcast.Student@100363</span><br><span class="line">    &#x2F;&#x2F;直接输出成员变量值</span><br><span class="line">    System.out.println(&quot;姓名：&quot;+s.name); &#x2F;&#x2F;null</span><br><span class="line">    System.out.println(&quot;年龄：&quot;+s.age); &#x2F;&#x2F;0</span><br><span class="line">    System.out.println(&quot;‐‐‐‐‐‐‐‐‐‐&quot;);</span><br><span class="line">    &#x2F;&#x2F;给成员变量赋值</span><br><span class="line">    s.name &#x3D; &quot;赵丽颖&quot;;</span><br><span class="line">    s.age &#x3D; 18;</span><br><span class="line">    &#x2F;&#x2F;再次输出成员变量的值</span><br><span class="line">    System.out.println(&quot;姓名：&quot;+s.name); &#x2F;&#x2F;赵丽颖</span><br><span class="line">    System.out.println(&quot;年龄：&quot;+s.age); &#x2F;&#x2F;18</span><br><span class="line">    System.out.println(&quot;‐‐‐‐‐‐‐‐‐‐&quot;);</span><br><span class="line">    &#x2F;&#x2F;调用成员方法</span><br><span class="line">    s.study(); &#x2F;&#x2F; &quot;好好学习，天天向上&quot;</span><br><span class="line">    s.eat(); &#x2F;&#x2F; &quot;学习饿了要吃饭&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="一个关于类和对象的练习"><a href="#一个关于类和对象的练习" class="headerlink" title="一个关于类和对象的练习"></a>一个关于类和对象的练习</h2><p>定义手机类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Phone &#123;</span><br><span class="line">  &#x2F;&#x2F; 成员变量</span><br><span class="line">  String brand; &#x2F;&#x2F;品牌</span><br><span class="line">  int price; &#x2F;&#x2F;价格</span><br><span class="line">  String color; &#x2F;&#x2F;颜色</span><br><span class="line">  &#x2F;&#x2F; 成员方法</span><br><span class="line">  &#x2F;&#x2F;打电话</span><br><span class="line">  public void call(String name) &#123;</span><br><span class="line">    System.out.println(&quot;给&quot;+name+&quot;打电话&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  &#x2F;&#x2F;发短信</span><br><span class="line">  public void sendMessage() &#123;</span><br><span class="line">    System.out.println(&quot;群发短信&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义测试类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Test02Phone &#123;</span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    &#x2F;&#x2F;创建对象</span><br><span class="line">    Phone p &#x3D; new Phone();</span><br><span class="line">    &#x2F;&#x2F;输出成员变量值</span><br><span class="line">    System.out.println(&quot;品牌：&quot;+p.brand);&#x2F;&#x2F;null</span><br><span class="line">    System.out.println(&quot;价格：&quot;+p.price);&#x2F;&#x2F;0</span><br><span class="line">    System.out.println(&quot;颜色：&quot;+p.color);&#x2F;&#x2F;null</span><br><span class="line">    System.out.println(&quot;‐‐‐‐‐‐‐‐‐‐‐‐&quot;);</span><br><span class="line">	   &#x2F;&#x2F;给成员变量赋值</span><br><span class="line">    p.brand &#x3D; &quot;锤子&quot;;</span><br><span class="line">    p.price &#x3D; 2999;</span><br><span class="line">    p.color &#x3D; &quot;棕色&quot;;</span><br><span class="line">    &#x2F;&#x2F;再次输出成员变量值</span><br><span class="line">    System.out.println(&quot;品牌：&quot;+p.brand);&#x2F;&#x2F;锤子</span><br><span class="line">    System.out.println(&quot;价格：&quot;+p.price);&#x2F;&#x2F;2999</span><br><span class="line">    System.out.println(&quot;颜色：&quot;+p.color);&#x2F;&#x2F;棕色</span><br><span class="line">    System.out.println(&quot;‐‐‐‐‐‐‐‐‐‐‐‐&quot;);</span><br><span class="line">    &#x2F;&#x2F;调用成员方法</span><br><span class="line">    p.call(&quot;紫霞&quot;);</span><br><span class="line">    p.sendMessage();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><h2 id="封装概述"><a href="#封装概述" class="headerlink" title="封装概述"></a>封装概述</h2><p>&emsp;面向对象编程语言是对客观世界的模拟，客观世界里成员变量都是隐藏在对象内部的，外界无法直接操作和修改。<br>封装可以被认为是一个保护屏障，防止该类的代码和数据被其他类随意访问。要访问该类的数据，必须通过指定的<br>方式。适当的封装可以让代码更容易理解与维护，也加强了代码的安全性。</p>
+<h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><p>&emsp;将属性隐藏起来，若需要访问某个属性，提供公共方法对其访问。</p>
+<h2 id="封装的步骤"><a href="#封装的步骤" class="headerlink" title="封装的步骤"></a>封装的步骤</h2><ol>
+<li>使用 private 关键字来修饰成员变量。</li>
+<li>对需要访问的成员变量，提供对应的一对 getXxx 方法.setXxx 方法.</li>
+</ol>
+<h2 id="封装的操作——private关键字"><a href="#封装的操作——private关键字" class="headerlink" title="封装的操作——private关键字"></a>封装的操作——private关键字</h2><ol>
+<li><p>含义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private是一个权限修饰符，代表最小权限。</span><br><span class="line">可以修饰成员变量和成员方法。</span><br><span class="line">被private修饰后的成员变量和成员方法，只在本类中才能访问</span><br></pre></td></tr></table></figure></li>
+<li><p>使用格式：private 数据类型 变量名;</p>
+</li>
+<li><p>使用private修饰成员变量，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">  private String name;</span><br><span class="line">  private int age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>提供 getXxx 方法 / setXxx 方法，可以访问成员变量，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">  private String name;</span><br><span class="line">  private int age;</span><br><span class="line">  public void setName(String n) &#123;</span><br><span class="line">    name &#x3D; n;</span><br><span class="line">  &#125;</span><br><span class="line">  public String getName() &#123;</span><br><span class="line">    return name;</span><br><span class="line">  &#125;</span><br><span class="line">  public void setAge(int a) &#123;</span><br><span class="line">    age &#x3D; a;</span><br><span class="line">  &#125;</span><br><span class="line">  public int getAge() &#123;</span><br><span class="line">    return age;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="封装优化-this关键字"><a href="#封装优化-this关键字" class="headerlink" title="封装优化-this关键字"></a>封装优化-this关键字</h2></li>
+<li><p>总结：this代表所在类的当前对象的引用（地址值），即对象自己的引用，相当于自己调用自己，让代码看起来更规范好看一些。</p>
+</li>
+<li><p>使用格式：this.变量名字;</p>
+</li>
+<li><p>使用this修饰方法中的变量，解决成员变量被隐藏的问题，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class Student &#123;</span><br><span class="line">  private String name;</span><br><span class="line">  private int age;</span><br><span class="line">  public void setName(String name) &#123;</span><br><span class="line">    &#x2F;&#x2F;name &#x3D; name;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">  &#125;</span><br><span class="line">  public String getName() &#123;</span><br><span class="line">    return name;</span><br><span class="line">  &#125;</span><br><span class="line">  public void setAge(int age) &#123;</span><br><span class="line">    &#x2F;&#x2F;age &#x3D; age;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">  &#125;</span><br><span class="line">  public int getAge() &#123;</span><br><span class="line">    return age;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="个人疑问"><a href="#个人疑问" class="headerlink" title="个人疑问"></a>个人疑问</h1><h2 id="封装的好处"><a href="#封装的好处" class="headerlink" title="封装的好处"></a>封装的好处</h2><p>&emsp;在面向对象程式设计方法中，封装（英语：Encapsulation）是指一种将抽象性函式接口的实现细节部份包装、隐藏起来的方法。<br>封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。<br>要访问该类的代码和数据，必须通过严格的接口控制。<br>封装最主要的功能在于我们能修改自己的实现代码，而不用修改那些调用我们代码的程序片段。<br>适当的封装可以让程式码更容易理解与维护，也加强了程式码的安全性。<br>封装的优点：</p>
+</li>
+<li><p>良好的封装能够减少耦合。</p>
+</li>
+<li><p>类内部的结构可以自由修改。</p>
+</li>
+<li><p>可以对成员变量进行更精确的控制。</p>
+</li>
+<li><p>隐藏信息，实现细节。</p>
+</li>
+</ol>
+<p>&emsp;java 封装，说白了就是将一大坨公共通用的实现逻辑玩意，装到一个盒子里（class），出入口都在这个盒子上。你要用就将这个盒子拿来用，连接出入口，就能用了，不用就可以直接扔，对你代码没什么影响。<br>对程序员来说，使用封装的目的：<br>1.偷懒，辛苦一次，后面都能少敲很多代码，增强了代码得复用性.<br>2.简化代码，看起来更容易懂.<br>3.隐藏核心实现逻辑代码，简化外部逻辑，并且不让其他人修改，jar 都这么干.<br>4.一对一，一个功能就只为这个功能服务；避免头发绳子一块用，导致最后一团糟.</p>
+<h2 id="get函数和set函数的大小写问题"><a href="#get函数和set函数的大小写问题" class="headerlink" title="get函数和set函数的大小写问题"></a>get函数和set函数的大小写问题</h2><p>&emsp;get和set后面的函数的首字母必须大写，其次命名规范尽量用英语单词，显得专业。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;个人感觉JAVA里面的类和对象其实和C里面的函数差不多，只是JAVA把他分装起来，用的时候直接导入就可以了，最重要的还是可以重复性的调用，减轻代码量。</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/11/08/java/java%E5%9F%BA%E7%A1%80/day06%E3%80%90%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E3%80%91/day06%E3%80%90%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E3%80%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B1%BB%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E6%9E%84%E9%80%A0/" rel="tag">类、封装、构造</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2019/11/09/java/java%E5%9F%BA%E7%A1%80/day07%E3%80%90Scanner%E7%B1%BB%E3%80%81Random%E7%B1%BB%E3%80%81ArrayList%E7%B1%BB%E3%80%91/day07%E3%80%90Scanner%E7%B1%BB%E3%80%81Random%E7%B1%BB%E3%80%81ArrayList%E7%B1%BB%E3%80%91/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            day07【Scanner类、Random类、ArrayList类】
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/11/05/java/java%E5%9F%BA%E7%A1%80/day05while%E5%BE%AA%E7%8E%AF/javaoj%E5%B8%B8%E8%A7%81%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">java：oj常见输入输出</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2017-2020
+        苦酒
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/1.jpg" alt="苦酒"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://www.zhihu.com/people/huang-gong-zi-64" target="_blank" rel="noopener">知乎</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://blog.csdn.net/qq_40915439" target="_blank" rel="noopener">CSDN</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://i.csdn.net/#/uc/profile" target="_blank" rel="noopener">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/js/ayer.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+
+    
+  </div>
+</body>
+
+</html>

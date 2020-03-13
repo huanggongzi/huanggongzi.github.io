@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    day07【Scanner类、Random类、ArrayList类】 |  苦酒
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/1.jpg" />
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-java/java基础/day07【Scanner类、Random类、ArrayList类】/day07【Scanner类、Random类、ArrayList类】" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  day07【Scanner类、Random类、ArrayList类】
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/11/09/java/java%E5%9F%BA%E7%A1%80/day07%E3%80%90Scanner%E7%B1%BB%E3%80%81Random%E7%B1%BB%E3%80%81ArrayList%E7%B1%BB%E3%80%91/day07%E3%80%90Scanner%E7%B1%BB%E3%80%81Random%E7%B1%BB%E3%80%81ArrayList%E7%B1%BB%E3%80%91/" class="article-date">
+  <time datetime="2019-11-09T13:08:06.000Z" itemprop="datePublished">2019-11-09</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JAVA%E5%9F%BA%E7%A1%80/">JAVA基础</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.9k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+  <div class="article-gallery">
+    <div class="article-gallery-photos">
+      
+        
+          <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3756629787,463216719&fm=15&gp=0.jpg" itemprop="image">
+        
+      
+    </div>
+  </div>
+
+
+      
+      <h1 id="每日一句"><a href="#每日一句" class="headerlink" title="每日一句"></a>每日一句</h1><p>挺喜欢这句话的：可是亲爱的，你真的还不够辛苦。不够努力，不够勤奋。</p>
+<h1 id="日记"><a href="#日记" class="headerlink" title="日记"></a>日记</h1><p>早晨订了一个7：20的闹钟，因为第一节是巩老师的课，要早早的去。<br>第一节课巩老师讲了讲上几节课金子搬运的问题，我们组一开始想用暴力，感觉方法不是太好。<br>于是开始研究dp01背包问题，无奈，最后代码只能达到会用以及自己能够看懂的程度，只能换成了最开始的暴力解决。<br>第二个问题，给出一个班级的数据，数据中包含每个人最好的6个朋友，根据数据能够求出谁的欢迎度最高，我们想的直接化成N个字符串<br>寻找里面出现次数最多的字符串。方法还行，不过最后老师点评说：最好是用上文件自动输入，这样才能实现自动化。</p>
+<h1 id="第-一-章-API"><a href="#第-一-章-API" class="headerlink" title="第 一 章 API"></a>第 一 章 API</h1><p>莫有什么好说的，主要是一个软件的查询。</p>
+<h1 id="第-二-章-Scanner类"><a href="#第-二-章-Scanner类" class="headerlink" title="第 二 章 Scanner类"></a>第 二 章 Scanner类</h1><h2 id="什么是Scanner类"><a href="#什么是Scanner类" class="headerlink" title="什么是Scanner类"></a>什么是Scanner类</h2><p>一个可以解析基本类型和字符串的简单文本扫描器。 例如，以下代码使用户能够从 System.in 中读取一个数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Scanner sc &#x3D; new Scanner(System.in);&#x2F;&#x2F;属于引用类的方法</span><br><span class="line">int i &#x3D; sc.nextInt();&#x2F;&#x2F;整数引用</span><br></pre></td></tr></table></figure>
+<h2 id="引用包的步骤"><a href="#引用包的步骤" class="headerlink" title="引用包的步骤"></a>引用包的步骤</h2><ol>
+<li>导包：使用import关键字导包，在类的所有代码之前导包，引入要使用的类型，java.lang包下的所有类无需导入。 格<br>式：<code>import 包名.类名;</code></li>
+<li>创建对象：使用该类的构造方法，创建一个该类的对象。格式如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数据类型  变量名  &#x3D;  new 数据类型(参数列表);</span><br><span class="line">Scanner stu &#x3D; new Scanner(System.in);</span><br></pre></td></tr></table></figure></li>
+<li>调用方法：调用该类的成员方法，完成指定的功能，格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">变量名。方法名（）；</span><br><span class="line">int i &#x3D; stu.nextInt();</span><br></pre></td></tr></table></figure>
+<h2 id="Scanner使用步骤"><a href="#Scanner使用步骤" class="headerlink" title="Scanner使用步骤"></a>Scanner使用步骤</h2></li>
+<li>查看类<br>java.util.Scanner ：该类需要import导入后使用。</li>
+<li>查看构造方法:<code>public Scanner(InputStream source)</code> : 构造一个新的 Scanner,它生成的值是从指定的输入流扫描的。</li>
+<li>查看成员方法:<code>public int nextInt()</code>：将输入信息的下一个标记扫描为一个 int 值。</li>
+<li>使用Scanner类，完成接收键盘录入数据的操作，代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1. 导包</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">public class Demo01_Scanner &#123;</span><br><span class="line">   public static void main(String[] args) &#123;  </span><br><span class="line">     &#x2F;&#x2F;2. 创建键盘录入数据的对象    </span><br><span class="line">     Scanner sc &#x3D; new Scanner(System.in);    </span><br><span class="line">     &#x2F;&#x2F;3. 接收数据    </span><br><span class="line">     System.out.println(&quot;请录入一个整数：&quot;);    </span><br><span class="line">     int i &#x3D; sc.nextInt();    </span><br><span class="line">     &#x2F;&#x2F;4. 输出数据    </span><br><span class="line">     System.out.println(&quot;i:&quot;+i);    </span><br><span class="line">   &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="第三章-Random类"><a href="#第三章-Random类" class="headerlink" title="第三章 Random类"></a>第三章 Random类</h1><h2 id="什么是Random类"><a href="#什么是Random类" class="headerlink" title="什么是Random类"></a>什么是Random类</h2>此类的实例用于生成伪随机数。例如，以下代码使用户能够得到一个随机数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Random r &#x3D; new Random();</span><br><span class="line">int i &#x3D; r.nextInt();</span><br></pre></td></tr></table></figure>
+<h2 id="Random-使用步骤"><a href="#Random-使用步骤" class="headerlink" title="Random 使用步骤"></a>Random 使用步骤</h2></li>
+<li>查看类:<code>java.util.Random</code>：该类需要 import导入使后使用。</li>
+<li>查看构造方法:<code>public Random()</code>：创建一个新的随机数生成器。</li>
+<li>查看成员方法:<code>public int nextInt(int n)</code>：返回一个伪随机数，范围在0（包括）和 指定值n（不包括）之间的int 值。如果想要获得1~N之间的数，直接`int  num = r.nextInt(n) + 1;</li>
+<li>使用Random类，完成生成3个10以内的随机整数的操作，代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1. 导包</span><br><span class="line">import java.util.Random;</span><br><span class="line">public class Demo01_Random &#123;</span><br><span class="line">   public static void main(String[] args) &#123;  </span><br><span class="line">        &#x2F;&#x2F;2. 创建键盘录入数据的对象</span><br><span class="line">        Random r &#x3D; new Random();</span><br><span class="line">        for(int i &#x3D; 0; i &lt; 3; i++)&#123;</span><br><span class="line">            &#x2F;&#x2F;3. 随机生成一个数据</span><br><span class="line">            int number &#x3D; r.nextInt(10);</span><br><span class="line">            &#x2F;&#x2F;4. 输出数据</span><br><span class="line">            System.out.println(&quot;number:&quot;+ number);</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="第四章-ArrayList类（难点）"><a href="#第四章-ArrayList类（难点）" class="headerlink" title="第四章 ArrayList类（难点）"></a>第四章 ArrayList类（难点）</h1><h2 id="什么是ArrayList类"><a href="#什么是ArrayList类" class="headerlink" title="什么是ArrayList类"></a>什么是ArrayList类</h2><code>java.util.ArrayList</code>是大小可变的数组的实现，存储在内的数据称为元素。此类提供一些方法来操作内部存储的元素.<code>ArrayList</code> 中可不断添加元素，其大小也自动增长。<h2 id="ArrayList-使用步骤"><a href="#ArrayList-使用步骤" class="headerlink" title="ArrayList 使用步骤"></a>ArrayList 使用步骤</h2></li>
+<li>查看类:<code>java.util.ArrayList &lt;E&gt;</code> ：该类需要 import导入使后使用。<E>:表示一种指定的数据类型，叫做泛型。E:取自Element（元素）的首字母。在出现E的地方,我们使用一种引用数据类型将其替换即可，表示我们将存储哪种引用类型的元素。代码如下：</li>
+<li>查看构造方法:<code>public ArrayList()</code> ：构造一个内容为空的集合。</li>
+<li>基本格式:在JDK7后,右侧泛型的尖括号之内可以留空，但是&lt;&gt;仍然要写。简化格式：<code>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();</code></li>
+<li>查看成员方法:<code>public boolean add(E e)</code> ： 将指定的元素添加到此集合的尾部。类型的对象。使用ArrayList类，存储三个字符串元素，代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class Test02StudentArrayList &#123;</span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    &#x2F;&#x2F;创建学生数组</span><br><span class="line">    ArrayList&lt;String&gt; list &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">    &#x2F;&#x2F;创建学生对象</span><br><span class="line">    String s1 &#x3D; &quot;曹操&quot;;</span><br><span class="line">    String s2 &#x3D; &quot;刘备&quot;;</span><br><span class="line">    String s3 &#x3D; &quot;孙权&quot;;</span><br><span class="line">    &#x2F;&#x2F;打印学生ArrayList集合</span><br><span class="line">    System.out.println(list);</span><br><span class="line">    &#x2F;&#x2F;把学生对象作为元素添加到集合</span><br><span class="line">    list.add(s1);</span><br><span class="line">    list.add(s2);</span><br><span class="line">    list.add(s3);</span><br><span class="line">	&#x2F;&#x2F;打印学生ArrayList集合</span><br><span class="line">    System.out.println(list);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="常用方法和遍历"><a href="#常用方法和遍历" class="headerlink" title="常用方法和遍历"></a>常用方法和遍历</h2>对于元素的操作,基本体现在——增、删、查。常用的方法有：</li>
+<li><code>public boolean add(E e)</code> ：将指定的元素添加到此集合的尾部。</li>
+<li><code>public E remove(int index)</code> ：移除此集合中指定位置上的元素。返回被删除的元素。</li>
+<li><code>public E get(int index)</code> ：返回此集合中指定位置上的元素。返回获取的元素。</li>
+<li><code>public int size()</code> ：返回此集合中的元素数。遍历集合时，可以控制索引范围，防止越界</li>
+<li>执行代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01ArrayListMethod &#123;</span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    &#x2F;&#x2F;创建集合对象</span><br><span class="line">    ArrayList&lt;String&gt; list &#x3D; new ArrayList&lt;String&gt;();</span><br><span class="line">    &#x2F;&#x2F;添加元素</span><br><span class="line">    list.add(&quot;hello&quot;);</span><br><span class="line">    list.add(&quot;world&quot;);</span><br><span class="line">    list.add(&quot;java&quot;);</span><br><span class="line">    &#x2F;&#x2F;public E get(int index):返回指定索引处的元素</span><br><span class="line">    System.out.println(&quot;get:&quot;+list.get(0));</span><br><span class="line">    System.out.println(&quot;get:&quot;+list.get(1));</span><br><span class="line">    System.out.println(&quot;get:&quot;+list.get(2));</span><br><span class="line">    &#x2F;&#x2F;public int size():返回集合中的元素的个数</span><br><span class="line">    System.out.println(&quot;size:&quot;+list.size());</span><br><span class="line">    &#x2F;&#x2F;public E remove(int index):删除指定索引处的元素，返回被删除的元素</span><br><span class="line">    System.out.println(&quot;remove:&quot;+list.remove(0));</span><br><span class="line">    &#x2F;&#x2F;遍历输出</span><br><span class="line">    for(int i &#x3D; 0; i &lt; list.size(); i++)&#123;</span><br><span class="line">      System.out.println(list.get(i));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="如何存储基本数据类型"><a href="#如何存储基本数据类型" class="headerlink" title="如何存储基本数据类型"></a>如何存储基本数据类型</h2>ArrayList对象不能存储基本类型，只能存储引用类型的数据。类似 <int> 不能写，但是存储基本数据类型对应的<br>包装类型是可以的。所以，想要存储基本类型数据， &lt;&gt; 中的数据类型，必须转换后才能编写，转换写法如下：<br><img src="https://s2.ax1x.com/2019/11/10/Muo3If.png" alt=""><br>我们发现，只有 Integer 和 Character 需要特殊记忆，其他基本类型只是首字母大写即可。那么存储基本类型数<br>据，代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Demo02ArrayListMethod &#123;</span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; list &#x3D; new ArrayList&lt;Integer&gt;();</span><br><span class="line">    list.add(1);</span><br><span class="line">    list.add(2);</span><br><span class="line">    list.add(3);</span><br><span class="line">    list.add(4);</span><br><span class="line">    System.out.println(list);    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>首先是输入类Scanner，主要用来做题。随机数的类Random,用来获得某个范围内的随机数据，最后Arraylist,一个动态的数组，可以用来储存数据。</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/11/09/java/java%E5%9F%BA%E7%A1%80/day07%E3%80%90Scanner%E7%B1%BB%E3%80%81Random%E7%B1%BB%E3%80%81ArrayList%E7%B1%BB%E3%80%91/day07%E3%80%90Scanner%E7%B1%BB%E3%80%81Random%E7%B1%BB%E3%80%81ArrayList%E7%B1%BB%E3%80%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scanner%E7%B1%BB%E3%80%81Random%E7%B1%BB%E3%80%81ArrayList%E7%B1%BB/" rel="tag">Scanner类、Random类、ArrayList类</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2019/11/12/%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%B1%BD%E8%BD%A6%E5%8A%A0%E6%B2%B9%E9%97%AE%E9%A2%98/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            汽车加油问题
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/11/08/java/java%E5%9F%BA%E7%A1%80/day06%E3%80%90%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E3%80%91/day06%E3%80%90%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E3%80%81%E5%B0%81%E8%A3%85%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E3%80%91/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">day06【类与对象、封装、构造方法】</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2017-2020
+        苦酒
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/1.jpg" alt="苦酒"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://www.zhihu.com/people/huang-gong-zi-64" target="_blank" rel="noopener">知乎</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://blog.csdn.net/qq_40915439" target="_blank" rel="noopener">CSDN</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://i.csdn.net/#/uc/profile" target="_blank" rel="noopener">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/js/ayer.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+
+    
+  </div>
+</body>
+
+</html>
