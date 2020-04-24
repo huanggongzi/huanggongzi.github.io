@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    【剑指offer】-调整数组顺序使奇数位于偶数前面-13/67 |  苦酒
+    【剑指offer】-顺时针打印矩阵-19/67 |  苦酒
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -30,7 +30,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-剑指offer/【剑指offer】-调整数组顺序使奇数位于偶数前面-13" class="article article-type-post" itemscope
+  <article id="post-剑指offer/【剑指offer】-顺时针打印矩阵-19" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -38,7 +38,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  【剑指offer】-调整数组顺序使奇数位于偶数前面-13/67
+  【剑指offer】-顺时针打印矩阵-19/67
 </h1>
   
 
@@ -47,8 +47,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/01/%E5%89%91%E6%8C%87offer/%E3%80%90%E5%89%91%E6%8C%87offer%E3%80%91-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2-13/" class="article-date">
-  <time datetime="2020-04-01T11:35:06.000Z" itemprop="datePublished">2020-04-01</time>
+      <a href="/2020/04/09/%E5%89%91%E6%8C%87offer/%E3%80%90%E5%89%91%E6%8C%87offer%E3%80%91-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5-19/" class="article-date">
+  <time datetime="2020-04-09T12:35:06.000Z" itemprop="datePublished">2020-04-09</time>
 </a>
       
   <div class="article-category">
@@ -62,7 +62,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">408字</span>
+            <span class="post-count">613字</span>
         </span>
     </span>
 
@@ -71,7 +71,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">2分钟</span>
         </span>
     </span>
 </div>
@@ -98,23 +98,21 @@
       
 
       
-      <h1 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1. 题目描述"></a>1. 题目描述</h1><p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
+      <h1 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1. 题目描述"></a>1. 题目描述</h1><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下4 X 4矩阵：<br><strong>1 2 3<br>4 5 6<br>7 8 9</strong><br>依次打印出数字为：<strong>1 2 3 6 9 8 7 4 5</strong></p>
 <h1 id="2-题目分析"><a href="#2-题目分析" class="headerlink" title="2. 题目分析"></a>2. 题目分析</h1><ol>
-<li><p>第一个做法：以<strong>时间换空间</strong>，复杂度<strong>O(n²)</strong></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 遍历数组array，利用num来记录当前奇数的个数</span><br><span class="line"><span class="number">2.</span> 当遍历到奇数时，利用交换的思想，将此时的奇数交换至array[num]的位置</span><br><span class="line"><span class="number">3.</span> 最终，得到最后的结果</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第二个做法：以<strong>空间换时间</strong>，复杂度<strong>O(n)</strong></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 开辟一个新的数组a，定义num1(代表array数组中奇数的个数)，num2(代表a数组中偶数的个数)</span><br><span class="line"><span class="number">2.</span> 遍历数组array。如果是奇数，将其array[num1++]，如果是偶数，将其a[num2++]</span><br><span class="line"><span class="number">3.</span> 最后，将a数组中的偶数转移到array数组中</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>一个二维数组，让你按照顺时针的规则，将遍历的数字存入到一个数组中，然后return</li>
+<li>设置4个变量：up、down、left、right，分别代表第一行、最后一行、第一列、最后一列</li>
+<li>向右走存入整行的值，当存入后，该行再也不会被遍历，代表上边界的 up 加一，同时判断是否和代表下边界的 down 交错</li>
+<li>向下走存入整列的值，当存入后，该列再也不会被遍历，代表右边界的 right 减一，同时判断是否和代表左边界的 left 交错</li>
+<li>向左走存入整行的值，当存入后，该行再也不会被遍历，代表下边界的 down 减一，同时判断是否和代表上边界的 up 交错</li>
+<li>向上走存入整列的值，当存入后，该列再也不会被遍历，代表左边界的 left 加一，同时判断是否和代表右边界的 right 交错</li>
+<li>最后即可得到顺时针旋转的list</li>
 </ol>
-<h1 id="3-题目代码"><a href="#3-题目代码" class="headerlink" title="3. 题目代码"></a>3. 题目代码</h1><ol>
-<li><p>第一个做法：以<strong>时间换空间</strong>，复杂度<strong>O(n²)</strong></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reOrderArray</span>(<span class="params"><span class="keyword">int</span>[] array</span>)</span> &#123;</span><br><span class="line">		<span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (array[i] % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">				j = i;</span><br><span class="line">				<span class="keyword">while</span> (j &gt; num) &#123;</span><br><span class="line">					temp = array[j];</span><br><span class="line">					array[j] = array[j - <span class="number">1</span>];</span><br><span class="line">					array[j - <span class="number">1</span>] = temp;</span><br><span class="line">					j--;</span><br><span class="line">				&#125;</span><br><span class="line">				num++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第二个做法：以<strong>空间换时间</strong>，复杂度<strong>O(n)</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reOrderArray</span><span class="params">(<span class="keyword">int</span> [] array)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];</span><br><span class="line">       <span class="keyword">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> num2 = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(array[i] % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">               a[num1++] = array[i];</span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               array[num2++] = array[i];</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num1; i++)&#123;</span><br><span class="line">           array[num2++] = a[i];</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
+<h1 id="3-题目代码"><a href="#3-题目代码" class="headerlink" title="3. 题目代码"></a>3. 题目代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Matrix</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// int[][] a = &#123; &#123; 1, 2, 3, 4 &#125;, &#123; 5, 6, 7, 8 &#125;, &#123; 9, 10, 11, 12 &#125; &#125;;</span></span><br><span class="line">		<span class="keyword">int</span>[][] a = &#123; &#123; <span class="number">1</span> &#125;, &#123; <span class="number">2</span> &#125;, &#123; <span class="number">3</span> &#125;, &#123; <span class="number">4</span> &#125;, &#123; <span class="number">5</span> &#125; &#125;;</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * 1 2 3 4 5</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		list = printMatrix(a);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">			System.out.print(list.get(i) + <span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;Integer&gt; <span class="title">printMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">		ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">int</span> up = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> down = matrix.length - <span class="number">1</span>;<span class="comment">// 代表的是行数 4</span></span><br><span class="line">		<span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> right = matrix[<span class="number">0</span>].length - <span class="number">1</span>;<span class="comment">// 代表的是列数 1</span></span><br><span class="line">		<span class="keyword">while</span> (up &lt;= down &amp;&amp; left &lt;= right) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">				list.add(matrix[up][i]);</span><br><span class="line">			&#125;</span><br><span class="line">			up++;</span><br><span class="line">			<span class="keyword">if</span> (up &gt; down) &#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = up; i &lt;= down; i++) &#123;</span><br><span class="line">				list.add(matrix[i][right]);</span><br><span class="line">			&#125;</span><br><span class="line">			right--;</span><br><span class="line">			<span class="keyword">if</span> (right &lt; left) &#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = right; i &gt;= left; i--) &#123;</span><br><span class="line">				list.add(matrix[down][i]);</span><br><span class="line">			&#125;</span><br><span class="line">			down--;</span><br><span class="line">			<span class="keyword">if</span> (up &gt; down) &#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = down; i &gt;= up; i--) &#123;</span><br><span class="line">				list.add(matrix[i][left]);</span><br><span class="line">			&#125;</span><br><span class="line">			left++;</span><br><span class="line">			<span class="keyword">if</span> (right &lt; left) &#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h1><ol>
+<li>list的用法——<a href="https://www.jianshu.com/p/63b01b6379fb" target="_blank" rel="noopener">JAVAlist的用法</a></li>
+<li>二维数组的用法——<a href="https://zhidao.baidu.com/question/283995072.html" target="_blank" rel="noopener">JAVA二维数组的用法</a></li>
 </ol>
 
       
@@ -185,7 +183,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/01/%E5%89%91%E6%8C%87offer/%E3%80%90%E5%89%91%E6%8C%87offer%E3%80%91-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2-13/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/09/%E5%89%91%E6%8C%87offer/%E3%80%90%E5%89%91%E6%8C%87offer%E3%80%91-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5-19/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -203,19 +201,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/02/%E5%89%91%E6%8C%87offer/%E3%80%90%E5%89%91%E6%8C%87offer%E3%80%91-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-15/" class="article-nav-link">
+      <a href="/2020/04/15/%E5%89%91%E6%8C%87offer/%E3%80%90%E5%89%91%E6%8C%87offer%E3%80%91-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97-20/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            【剑指offer】-反转链表-15/67
+            【剑指offer】-栈的压入、弹出序列-20/67
           
         </div>
       </a>
     
     
-      <a href="/2020/04/01/%E5%89%91%E6%8C%87offer/%E3%80%90%E5%89%91%E6%8C%87offer%E3%80%91-%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACK%E4%B8%AA%E7%BB%93%E7%82%B9-14/" class="article-nav-link">
+      <a href="/2020/04/06/%E5%89%91%E6%8C%87offer/%E3%80%90%E5%89%91%E6%8C%87offer%E3%80%91-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F-18/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">【剑指offer】-链表中倒数第K个结点-14/67</div>
+        <div class="article-nav-title">【剑指offer】-二叉树的镜像-18/67</div>
       </a>
     
   </nav>
